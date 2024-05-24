@@ -1,0 +1,7 @@
+1) Need to control camera via motors.
+2) Fix bug when saving video.
+3) Fix bug when saving pictures.
+5) Ability to send files and videos via email.
+6) Assign designated CSS files. 
+7) ReadMe and requirements and repo.
+8) Accessible from anywhere

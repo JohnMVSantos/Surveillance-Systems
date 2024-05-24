@@ -142,6 +142,7 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+config.json
 
 # Pyre type checker
 .pyre/
@@ -158,3 +159,19 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# Saved images
+surveillance/static/pictures/*.png
+surveillance/static/pictures/*.jpg
+surveillance/static/pictures/*.jpeg
+surveillance/static/pictures/*.gif
+surveillance/static/pictures/*.bmp
+surveillance/static/pictures/*.svg
+
+# Saved videos
+surveillance/static/video/*.h264
+surveillance/static/video/*.mp4
+surveillance/static/video/*.avi
+surveillance/static/video/*.mov
+surveillance/static/video/*.mkv
+surveillance/static/video/*.wmv

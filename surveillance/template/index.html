@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oswell Surveillance</title>
+    <link rel="icon" type="image/png" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/time.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="/static/time.js"></script>
+    <style>
+        @media (min-width: 992px) { /* Desktop and larger devices */
+            .desktop-padding {
+                padding-top: 20px; /* Add padding on top for spacing */
+            }
+            .desktop-spacing-right {
+                padding-right: 20px; /* Add spacing between columns */
+            }
+            .streaming-container {
+                position: relative;
+                max-width: 90%; /* Limit max width of the streaming container */
+                margin: auto; /* Center the streaming container */
+            }
+            .logout-button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: red;
+                color: white;
+                padding: 15px 30px;
+                border-radius: 8px;
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 991px) { /* Tablets and mobile devices */
+            .mobile-settings {
+                position: static;
+                padding-left: 15px; /* Add left padding on mobile */
+                padding-right: 15px; /* Add right padding on mobile */
+            }
+            .logout-button {
+                position: static;
+                background-color: red;
+                color: white;
+                padding: 10px 25px;
+                border-radius: 8px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #121212; color: white;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 desktop-padding desktop-spacing-right mobile-settings">
+                <div class="streaming-container" style="background-color: #272727; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-bottom: 20px; border-radius: 8px; text-align: center; position: relative;">
+                    <a href="{{ url_for('logout') }}" class="logout-button" target="_top">Logout</a>
+                    <h1 style="margin-bottom: 10px; padding-bottom: 10px;">Live Camera</h1>
+                    <div id="date-time">
+                        <div id="display-date">
+                            <span id="day">day</span>,
+                            <span id="daynum">00</span>
+                            <span id="month">month</span>
+                            <span id="year">0000</span>
+                            <div id="display-time"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="{{'cam'}}" style="width: 100%; height: auto; border-radius: 4px;">
+                    </div>
+                    <form method="POST" action="test">
+                        <p> <input type="range" min="0" max="180" name="slider" /> </p>
+                        <input type="submit" value="submit" style="background-color: #272727; color: #ffd868; border: 2px solid #ffd868; border-radius: 10px; cursor: pointer;" />
+                    </form>
+                    <button id="StartR" type="button" title="record video file" onclick="window.open('/startRec.html', 'infstate'); return false;" style="background-color: #4CAF50; color: white; padding: 15px 20px; border-radius: 5px; margin-top: 10px; width: 100%; cursor: pointer; font-size: 18px;">Start</button>
+                    <button id="StopR" type="button" title="record video file" onclick="window.open('/stopRec.html', 'infstate'); return false;" style="background-color: #f44336; color: white; padding: 15px 20px; border-radius: 5px; margin-top: 10px; width: 100%; cursor: pointer; font-size: 18px;">Stop</button>
+                    <button id="Snap" type="button" title="take jpg file" onclick="window.open('/snap.html', 'infstate'); return false;" style="background-color: #4CAF50; color: white; padding: 15px 20px; border-radius: 5px; margin-top: 10px; width: 100%; cursor: pointer; font-size: 18px;">Snap</button>
+                    <button onclick="window.location.href='/files'" style="background-color: #ced6d5; color: white; padding: 12px 24px; border-radius: 5px; margin-top: 10px; cursor: pointer; width: 100%; font-size: 18px;">Files</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = updateDateTime
+    </script>
+</body>
+</html>
