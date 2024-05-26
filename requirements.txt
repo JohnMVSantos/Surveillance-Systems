@@ -1,4 +1,4 @@
-flask
-flask_restful
-numpy
-pillow
+flask~=2.2.2
+flask_restful~=0.3.10
+numpy~=1.24.2
+pillow~=9.4.0

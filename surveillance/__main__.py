@@ -16,7 +16,7 @@ from flask import (
     session, 
     url_for
 )
-from gpiozero import AngularServo
+from gpiozero import Servo
 from datetime import datetime
 from time import sleep
 import subprocess
@@ -97,7 +97,8 @@ def main():
         cooldown=args.cooldown,
     )
 
-    servo = AngularServo(17, min_angle=0, max_angle=180)
+    servo = Servo(17)
+    servo.value = None
 
     class VideoFeed(Resource):
         """
@@ -189,14 +190,15 @@ def main():
         """
         return render_template("index.html")
     
-    @app.route("/test", methods=["POST"])
-    def test():
+    @app.route("/move", methods=["POST"])
+    def move():
         # Get slider values for servo movement.
         slider = request.form["slider"]
-        servo.angle = int(slider)
+        servo.value = float(slider)
         # Give servo some time to move.
         sleep(1)
-        return redirect(url_for('index'))
+        servo.value = None
+        return '', 204  # Successful movement
 
     @app.route('/info.html')
     def info() -> str:
@@ -245,9 +247,9 @@ def main():
         """
         if not silent:
             logger("Taking a photo.")
+        
         camera.video_snap()
-        #return render_template('snap.html')
-        return render_template("index.html")
+        return render_template("snap.html")
 
     @app.route('/api/files')
     def api_files():
