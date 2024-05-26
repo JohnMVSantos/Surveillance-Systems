@@ -21,13 +21,13 @@ via any device with internet access.
 
 At first visit, the user is prompted to login to access the camera feed.
 
-![Login Page](/Surveillance-Systems/surveillance/static/images/login_page.png)
+![Login Page](surveillance/static/images/login_page.png)
 
 Once authorized, the user has access to the live feed from the camera with
 various options of control such as rotation of the camera and capturing images
 and videos (*In progress*). 
 
-![Camera Live Feed](/Surveillance-Systems/surveillance/static/images/live_feed.jpg)
+![Camera Live Feed](surveillance/static/images/live_feed.jpg)
 
 ## Hardware Requirements
 
