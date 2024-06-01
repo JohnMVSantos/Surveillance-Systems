@@ -3,6 +3,8 @@ This package provides surveillance capabilities with various functionalities
 allowing secure usage, motion notifications, and connectivity from anywhere 
 via any device with internet access.
 
+![Product Showcase](surveillance/static/images/surveillance_system.jpg)
+
 ## Overview
 
 - [Changelog](#changelog)
@@ -31,11 +33,16 @@ and videos (*In progress*).
 
 ## Hardware Requirements
 
+The electrical schematic for the product is provided below.
+
+![Electrical Schematic](surveillance/static/images/Schematic_Surveillance-Systems-V1_2024-06-01.png)
+
 This application uses the following hardware:
 
 1. Raspberry Pi 5 with 64-bit Raspberry Pi OS Debian Distro (*Released: 2024-03-15*).
 2. Freenove 8MP camera module provided with their [instructions and quickstart guides](https://github.com/Freenove/Freenove_Camera_Module_for_Raspberry_Pi). 
 3. Standard servo motor (3-pin) PiGPIO compatible.
+4. [Geeekpi Mini Tower Kit](https://www.amazon.ca/GeeekPi-Raspberry-Cooler-Module-Expansion/dp/B0CQYTN94R) for Raspberry Pi 5.
 
 ## Installations
 
